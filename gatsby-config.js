@@ -6,6 +6,32 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-google-tagmanager',
+      options: {
+        id: 'GTM-MMDHTQP',
+
+        // Include GTM in development.
+        //
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: true,
+
+        // datalayer to be set before GTM is loaded
+        // should be an object or a function that is executed in the browser
+        //
+        // Defaults to null
+        defaultDataLayer: { platform: 'gatsby' },
+
+        // Specify optional GTM environment details.
+        // Name of the event that is triggered
+        // on every Gatsby route change.
+        //
+        // Defaults to gatsby-route-change
+        // Defaults to false
+        enableWebVitalsTracking: true,
+        // Defaults to https://www.googletagmanager.com
+      },
+    },
+    {
       resolve: 'gatsby-plugin-styled-components',
       options: {
         fileName: isDev,
@@ -30,7 +56,7 @@ module.exports = {
       options: {
         apiToken: 'f1da056d825e63895f9358620a522a',
         localeFallbacks: {
-            'fi': 'en',
+          fi: 'en',
         },
       },
     },
